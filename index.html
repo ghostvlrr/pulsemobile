@@ -1,0 +1,483 @@
+<!--
+Esports Pulse - Minimal Landing Page by AI, 2024
+Bu dosya, sade, modern ve ferah bir landing page için optimize edilmiştir.
+-->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EsportsPulse Mobil Uygulama</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Esports_vector.svg">
+  <meta name="description" content="Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et!">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #18181b;
+      color: #fff;
+      min-height: 100vh;
+    }
+    .fade-in { animation: fadeIn 1s cubic-bezier(.4,2,.6,1); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(24px);} to { opacity: 1; transform: none; } }
+    /* HERO */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #18181b 70%, #232326 100%);
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    .hero-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: #fff;
+      object-fit: contain;
+      margin-bottom: 2.2rem;
+      border: none;
+    }
+    .hero-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1.1rem;
+      letter-spacing: 1px;
+    }
+    .hero-desc {
+      color: #fff;
+      opacity: 0.92;
+      font-size: 1.18rem;
+      margin-bottom: 2.2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #e10600;
+      border: none;
+      border-radius: 14px;
+      padding: 1rem 2.1rem;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: none;
+      margin-bottom: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .store-btn:hover {
+      background: #b00500;
+      color: #fff;
+    }
+    .store-btn img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .scroll-down {
+      margin-top: 1.7rem;
+      color: #fff;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .scroll-down:hover { opacity: 1; }
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 1.2rem 2.5rem 1.2rem;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      margin-bottom: 2.2rem;
+      position: relative;
+      overflow: visible;
+    }
+    .section-title {
+      color: #fff;
+      font-size: 1.7rem;
+      font-weight: 900;
+      margin-bottom: 2.1rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    /* SLIDER */
+    .slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+      margin-bottom: 1.2rem;
+      background: #232326;
+      box-shadow: 0 2px 12px #0002;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: #e10600;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 2;
+      box-shadow: none;
+      transition: background 0.2s, color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider-arrow:hover {
+      background: #e10600;
+      color: #fff;
+    }
+    .slider-arrow.left { left: 10px; }
+    .slider-arrow.right { right: 10px; }
+    .slides {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+      width: 100%;
+    }
+    .slide {
+      min-width: 100%;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      height: 180px;
+      padding: 0 1rem;
+    }
+    .slide img {
+      max-width: 96%;
+      max-height: 140px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      background: #fff;
+      object-fit: contain;
+      filter: none;
+      transition: box-shadow 0.2s;
+    }
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e10600;
+      opacity: 0.25;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      border: none;
+      box-shadow: none;
+    }
+    .slider-dot.active {
+      opacity: 1;
+      box-shadow: none;
+      background: #e10600;
+    }
+    /* FEATURES */
+    .features {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .feature {
+      background: rgba(244,244,244,0.13);
+      border-radius: 12px;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 2px 12px #0001;
+      min-width: 180px;
+      max-width: 240px;
+      flex: 1 1 180px;
+      transition: none;
+    }
+    .feature-icon {
+      margin-bottom: 1rem;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-title {
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.2px;
+    }
+    .feature-desc {
+      color: #fff;
+      opacity: 0.85;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: rgba(244,244,244,0.13);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      box-shadow: none;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.1px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      justify-content: space-between;
+    }
+    .faq-toggle {
+      font-size: 1.3rem;
+      color: #e10600;
+      margin-left: 0.7rem;
+      transition: transform 0.3s;
+      user-select: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-item.open .faq-toggle {
+      transform: rotate(90deg);
+      color: #e10600;
+    }
+    .faq-a {
+      color: #fff;
+      opacity: 0.85;
+      font-size: 0.98rem;
+      margin-top: 0.5rem;
+      display: block;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s, opacity 0.3s;
+      opacity: 0;
+    }
+    .faq-item.open .faq-a {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 0.7rem;
+    }
+    /* FOOTER */
+    .footer {
+      background: #232326;
+      color: #fff;
+      text-align: center;
+      padding: 1.7rem 1rem 1.2rem 1rem;
+      margin-top: 2.2rem;
+      font-size: 0.98rem;
+      letter-spacing: 0.1px;
+      border-top: none;
+      box-shadow: none;
+    }
+    .footer-social {
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.1rem;
+    }
+    .footer-social a {
+      color: #fff;
+      opacity: 0.7;
+      font-size: 1.3rem;
+      transition: color 0.2s, opacity 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .footer-social a:hover {
+      color: #e10600;
+      opacity: 1;
+    }
+    .footer-social svg {
+      width: 1.3rem;
+      height: 1.3rem;
+      display: block;
+    }
+    .footer-links {
+      margin-top:0.7rem;
+      font-size:0.95rem;
+    }
+    .footer-links a {
+      color:#fff;opacity:0.6;text-decoration:underline;margin-right:1.2rem;
+      transition: color 0.2s, opacity 0.2s;
+    }
+    .footer-links a:hover { color:#e10600; opacity:1; }
+    @media (max-width: 900px) {
+      section { padding: 1.2rem 0.3rem 1.2rem 0.3rem; }
+      .hero-title { font-size: 1.5rem; }
+      .hero-logo { width: 56px; height: 56px; }
+      .feature { min-width: 100px; max-width: 100%; padding: 0.7rem 0.5rem; }
+      .faq-item { padding: 0.7rem 0.5rem; }
+      .slide { height: 70px; }
+      .slide img { max-height: 50px; }
+      .slider { min-height: 70px; }
+      .store-btn { font-size: 0.9rem; padding: 0.7rem 1rem; border-radius: 10px; }
+      .store-btn img { width: 18px; height: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-section">
+    <img src="src/logo/logo.png" alt="EsportsPulse logosu" class="hero-logo" loading="lazy" />
+    <h1 class="hero-title">EsportsPulse</h1>
+    <p class="hero-desc">Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et! Modern, hızlı ve tamamen ücretsiz mobil uygulama.</p>
+    <button id="downloadBtn" class="download-btn" aria-label="APK İndir">APK İndir</button>
+    <div id="updateInfo"></div>
+  </header>
+
+  <section class="gallery-section fade-in">
+    <h2 class="section-title">Uygulama Görselleri</h2>
+    <div class="gallery-scroll" style="position:relative;">
+      <button class="slider-arrow left" id="galleryLeft" aria-label="Sola Kaydır" tabindex="0" role="button">&#8592;</button>
+      <div class="gallery" id="gallery" role="region" aria-label="Uygulama görselleri sliderı"></div>
+      <button class="slider-arrow right" id="galleryRight" aria-label="Sağa Kaydır" tabindex="0" role="button">&#8594;</button>
+      <div class="slider-dots" id="galleryDots" role="tablist"></div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2 class="section-title">Neden EsportsPulse?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🏆</div>
+        <div class="feature-title">Tüm Takımlar</div>
+        <div class="feature-desc">Tüm espor takımlarını ve maçlarını tek ekranda gör.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">⏱️</div>
+        <div class="feature-title">Canlı Skor</div>
+        <div class="feature-desc">Maçların anlık skorlarını ve sonuçlarını takip et.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📅</div>
+        <div class="feature-title">Maç Takvimi</div>
+        <div class="feature-desc">Yaklaşan ve geçmiş maçları kolayca incele.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🔔</div>
+        <div class="feature-title">Anlık Bildirim</div>
+        <div class="feature-desc">Favori takımların maçları için anında bildirim al.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🎮</div>
+        <div class="feature-title">Çoklu Oyun</div>
+        <div class="feature-desc">VALORANT, CS2 ve LoL maçlarını takip et.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="changelog-section">
+    <h2 class="section-title">Güncelleme Notları</h2>
+    <div id="changelog"></div>
+  </section>
+
+  <section class="faq-section">
+    <h2 class="section-title">Sıkça Sorulan Sorular (SSS)</h2>
+    <div class="faq-list">
+      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq1">
+        <div class="faq-q">EsportsPulse nedir? <span class="faq-toggle" aria-hidden="true">▼</span></div>
+        <div class="faq-a" id="faq1">EsportsPulse, tüm espor takımlarını tek bir noktadan takip etmenizi sağlayan bir mobil uygulamadır. Canlı skorlar, maç takvimi ve anlık bildirimlerle favori takımlarınızı kolayca takip edebilirsiniz.</div>
+      </div>
+      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq2">
+        <div class="faq-q">Hangi oyunlar destekleniyor? <span class="faq-toggle" aria-hidden="true">▼</span></div>
+        <div class="faq-a" id="faq2">Şu anda VALORANT, CS2 ve League of Legends oyunlarında mücadele eden tüm espor takımlarını takip edebilirsiniz. Desteklenen oyunlar zamanla artabilir.</div>
+      </div>
+      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq3">
+        <div class="faq-q">Uygulamayı kullanmak için hesap oluşturmam gerekiyor mu? <span class="faq-toggle" aria-hidden="true">▼</span></div>
+        <div class="faq-a" id="faq3">Hayır, herhangi bir hesap oluşturmanıza gerek yoktur. Uygulamayı tamamen anonim şekilde kullanabilirsiniz.</div>
+      </div>
+      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq4">
+        <div class="faq-q">Geçmiş maç sonuçlarına erişebilir miyim? <span class="faq-toggle" aria-hidden="true">▼</span></div>
+        <div class="faq-a" id="faq4">Evet! Sadece canlı skorları değil, aynı zamanda geçmiş maçların sonuçlarını da görüntüleyebilirsiniz.</div>
+      </div>
+      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq5">
+        <div class="faq-q">Uygulama ücretsiz mi? <span class="faq-toggle" aria-hidden="true">▼</span></div>
+        <div class="faq-a" id="faq5">Evet, uygulama tamamen ücretsizdir.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" title="Twitter" aria-label="Twitter" tabindex="0"><img src="src/images/twitter.svg" alt="Twitter logosu" loading="lazy"></a>
+      <a href="#" title="Instagram" aria-label="Instagram" tabindex="0"><img src="src/images/instagram.svg" alt="Instagram logosu" loading="lazy"></a>
+      <a href="#" title="Discord" aria-label="Discord" tabindex="0"><img src="src/images/discord.svg" alt="Discord logosu" loading="lazy"></a>
+    </div>
+    <div class="footer-copy">&copy; 2024 EsportsPulse &bull; Tüm hakları saklıdır</div>
+  </footer>
+  <script src="update.js"></script>
+  <script>
+    // Otomatik güncelleme kontrolü
+    fetch('app-version.json')
+      .then(res => res.json())
+      .then(remote => {
+        const remoteVersion = remote.latestVersion;
+        const localVersion = localStorage.getItem('app_version');
+        if (localVersion !== remoteVersion) {
+          localStorage.setItem('app_version', remoteVersion);
+          // Yeni versiyon varsa sayfayı yenile
+          window.location.reload(true);
+        }
+      });
+  </script>
+</body>
+</html> 
