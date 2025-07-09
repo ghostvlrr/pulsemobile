@@ -1,483 +1,175 @@
-<!--
-Esports Pulse - Minimal Landing Page by AI, 2024
-Bu dosya, sade, modern ve ferah bir landing page için optimize edilmiştir.
--->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EsportsPulse Mobil Uygulama</title>
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Esports_vector.svg">
-  <meta name="description" content="Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et!">
+  <meta name="description" content="Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et! Profesyonel, modern ve hızlı mobil uygulama.">
+  <meta name="keywords" content="esports, espor, canlı skor, valorant, cs2, lol, mobil uygulama, takımlar, maçlar, bildirim, fixture, results, esports app">
+  <meta name="author" content="EsportsPulse">
+  <meta property="og:title" content="EsportsPulse Mobil Uygulama" />
+  <meta property="og:description" content="Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="src/logo/logo.png" />
+  <link rel="icon" href="src/logo/logo.png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background: #18181b;
-      color: #fff;
-      min-height: 100vh;
-    }
-    .fade-in { animation: fadeIn 1s cubic-bezier(.4,2,.6,1); }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(24px);} to { opacity: 1; transform: none; } }
-    /* HERO */
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #18181b 70%, #232326 100%);
-      text-align: center;
-      padding: 0 1.5rem;
-    }
-    .hero-logo {
-      width: 96px;
-      height: 96px;
-      border-radius: 24px;
-      background: #fff;
-      object-fit: contain;
-      margin-bottom: 2.2rem;
-      border: none;
-    }
-    .hero-title {
-      font-size: 2.7rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 1.1rem;
-      letter-spacing: 1px;
-    }
-    .hero-desc {
-      color: #fff;
-      opacity: 0.92;
-      font-size: 1.18rem;
-      margin-bottom: 2.2rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-    .store-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-    }
-    .store-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      background: #e10600;
-      border: none;
-      border-radius: 14px;
-      padding: 1rem 2.1rem;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-decoration: none;
-      box-shadow: none;
-      margin-bottom: 0.5rem;
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-    }
-    .store-btn:hover {
-      background: #b00500;
-      color: #fff;
-    }
-    .store-btn img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-    }
-    .scroll-down {
-      margin-top: 1.7rem;
-      color: #fff;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-    .scroll-down:hover { opacity: 1; }
-    /* SECTIONS */
-    section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3.5rem 1.2rem 2.5rem 1.2rem;
-      background: none;
-      border-radius: 0;
-      box-shadow: none;
-      margin-bottom: 2.2rem;
-      position: relative;
-      overflow: visible;
-    }
-    .section-title {
-      color: #fff;
-      font-size: 1.7rem;
-      font-weight: 900;
-      margin-bottom: 2.1rem;
-      text-align: center;
-      letter-spacing: 0.5px;
-    }
-    /* SLIDER */
-    .slider {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 18px;
-      margin-bottom: 1.2rem;
-      background: #232326;
-      box-shadow: 0 2px 12px #0002;
-      min-height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      color: #e10600;
-      font-size: 1.3rem;
-      cursor: pointer;
-      z-index: 2;
-      box-shadow: none;
-      transition: background 0.2s, color 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .slider-arrow:hover {
-      background: #e10600;
-      color: #fff;
-    }
-    .slider-arrow.left { left: 10px; }
-    .slider-arrow.right { right: 10px; }
-    .slides {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(.4,2,.6,1);
-      width: 100%;
-    }
-    .slide {
-      min-width: 100%;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      height: 180px;
-      padding: 0 1rem;
-    }
-    .slide img {
-      max-width: 96%;
-      max-height: 140px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px #0002;
-      background: #fff;
-      object-fit: contain;
-      filter: none;
-      transition: box-shadow 0.2s;
-    }
-    .slider-nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.7rem;
-      margin-top: 0.7rem;
-    }
-    .slider-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #e10600;
-      opacity: 0.25;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      border: none;
-      box-shadow: none;
-    }
-    .slider-dot.active {
-      opacity: 1;
-      box-shadow: none;
-      background: #e10600;
-    }
-    /* FEATURES */
-    .features {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: stretch;
-      flex-wrap: wrap;
-    }
-    .feature {
-      background: rgba(244,244,244,0.13);
-      border-radius: 12px;
-      padding: 2rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 2px 12px #0001;
-      min-width: 180px;
-      max-width: 240px;
-      flex: 1 1 180px;
-      transition: none;
-    }
-    .feature-icon {
-      margin-bottom: 1rem;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .feature-title {
-      font-weight: 900;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #fff;
-      text-align: center;
-      letter-spacing: 0.2px;
-    }
-    .feature-desc {
-      color: #fff;
-      opacity: 0.85;
-      text-align: center;
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-    /* FAQ */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      background: rgba(244,244,244,0.13);
-      border-radius: 10px;
-      padding: 1.1rem 1.2rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      border: none;
-      box-shadow: none;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-    .faq-q {
-      font-weight: 700;
-      color: #fff;
-      font-size: 1.05rem;
-      margin-bottom: 0.2rem;
-      letter-spacing: 0.1px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      justify-content: space-between;
-    }
-    .faq-toggle {
-      font-size: 1.3rem;
-      color: #e10600;
-      margin-left: 0.7rem;
-      transition: transform 0.3s;
-      user-select: none;
-      display: flex;
-      align-items: center;
-    }
-    .faq-item.open .faq-toggle {
-      transform: rotate(90deg);
-      color: #e10600;
-    }
-    .faq-a {
-      color: #fff;
-      opacity: 0.85;
-      font-size: 0.98rem;
-      margin-top: 0.5rem;
-      display: block;
-      width: 100%;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s, opacity 0.3s;
-      opacity: 0;
-    }
-    .faq-item.open .faq-a {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 0.7rem;
-    }
-    /* FOOTER */
-    .footer {
-      background: #232326;
-      color: #fff;
-      text-align: center;
-      padding: 1.7rem 1rem 1.2rem 1rem;
-      margin-top: 2.2rem;
-      font-size: 0.98rem;
-      letter-spacing: 0.1px;
-      border-top: none;
-      box-shadow: none;
-    }
-    .footer-social {
-      margin-top: 0.7rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.1rem;
-    }
-    .footer-social a {
-      color: #fff;
-      opacity: 0.7;
-      font-size: 1.3rem;
-      transition: color 0.2s, opacity 0.2s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-    .footer-social a:hover {
-      color: #e10600;
-      opacity: 1;
-    }
-    .footer-social svg {
-      width: 1.3rem;
-      height: 1.3rem;
-      display: block;
-    }
-    .footer-links {
-      margin-top:0.7rem;
-      font-size:0.95rem;
-    }
-    .footer-links a {
-      color:#fff;opacity:0.6;text-decoration:underline;margin-right:1.2rem;
-      transition: color 0.2s, opacity 0.2s;
-    }
-    .footer-links a:hover { color:#e10600; opacity:1; }
-    @media (max-width: 900px) {
-      section { padding: 1.2rem 0.3rem 1.2rem 0.3rem; }
-      .hero-title { font-size: 1.5rem; }
-      .hero-logo { width: 56px; height: 56px; }
-      .feature { min-width: 100px; max-width: 100%; padding: 0.7rem 0.5rem; }
-      .faq-item { padding: 0.7rem 0.5rem; }
-      .slide { height: 70px; }
-      .slide img { max-height: 50px; }
-      .slider { min-height: 70px; }
-      .store-btn { font-size: 0.9rem; padding: 0.7rem 1rem; border-radius: 10px; }
-      .store-btn img { width: 18px; height: 18px; }
-    }
-  </style>
 </head>
 <body>
-  <header class="hero-section">
-    <img class="hero-logo" src="src/logo/logo.png" alt="EsportsPulse Logo" />
-    <h1 class="hero-title">EsportsPulse</h1>
-    <p class="hero-desc">Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et! Modern, hızlı ve tamamen ücretsiz mobil uygulama.</p>
-    <button id="downloadBtn" class="download-btn" aria-label="APK İndir">APK İndir</button>
-    <div id="updateInfo"></div>
+  <!-- THEME TOGGLE -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Tema Değiştir">🌙</button>
+  <!-- HERO SECTION -->
+  <header class="main-hero">
+    <div class="hero-content">
+      <img class="hero-logo" src="src/logo/logo.png" alt="EsportsPulse Logo" />
+      <h1 class="hero-title">EsportsPulse</h1>
+      <p class="hero-desc">Tüm espor takımlarının maçlarını, canlı skorlarını ve bildirimlerini tek bir noktadan takip et! Modern, hızlı ve tamamen ücretsiz mobil uygulama.</p>
+      <a href="#" class="cta-btn" id="downloadBtn" aria-label="APK İndir">Hemen İndir</a>
+      <a href="#features" class="cta-secondary">Neden EsportsPulse?</a>
+    </div>
+    <div class="hero-bg-anim"></div>
   </header>
 
-  <section class="gallery-section fade-in">
-    <h2 class="section-title">Uygulama Görselleri</h2>
-    <div class="gallery-scroll" style="position:relative;">
-      <button class="slider-arrow left" id="galleryLeft" aria-label="Sola Kaydır" tabindex="0" role="button">&#8592;</button>
-      <div class="gallery" id="gallery" role="region" aria-label="Uygulama görselleri sliderı"></div>
-      <button class="slider-arrow right" id="galleryRight" aria-label="Sağa Kaydır" tabindex="0" role="button">&#8594;</button>
-      <div class="slider-dots" id="galleryDots" role="tablist"></div>
-    </div>
-  </section>
+  <main>
+    <!-- FEATURES SECTION -->
+    <section class="features-section" id="features">
+      <h2 class="section-title">Neden EsportsPulse?</h2>
+      <div class="features">
+        <div class="feature-card"><div class="feature-icon">🏆</div><div class="feature-title">Tüm Takımlar</div><div class="feature-desc">Tüm espor takımlarını ve maçlarını tek ekranda gör.</div></div>
+        <div class="feature-card"><div class="feature-icon">⏱️</div><div class="feature-title">Canlı Skor</div><div class="feature-desc">Maçların anlık skorlarını ve sonuçlarını takip et.</div></div>
+        <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-title">Maç Takvimi</div><div class="feature-desc">Yaklaşan ve geçmiş maçları kolayca incele.</div></div>
+        <div class="feature-card"><div class="feature-icon">🔔</div><div class="feature-title">Anlık Bildirim</div><div class="feature-desc">Favori takımların maçları için anında bildirim al.</div></div>
+        <div class="feature-card"><div class="feature-icon">🎮</div><div class="feature-title">Çoklu Oyun</div><div class="feature-desc">VALORANT, CS2 ve LoL maçlarını takip et.</div></div>
+        <div class="feature-card"><div class="feature-icon">📈</div><div class="feature-title">İstatistikler</div><div class="feature-desc">Takımlar ve oyuncular için detaylı istatistikler.</div></div>
+        <div class="feature-card"><div class="feature-icon">💬</div><div class="feature-title">Topluluk</div><div class="feature-desc">Yorum yap, favori takımlarını paylaş.</div></div>
+      </div>
+    </section>
 
-  <section class="features-section">
-    <h2 class="section-title">Neden EsportsPulse?</h2>
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">🏆</div>
-        <div class="feature-title">Tüm Takımlar</div>
-        <div class="feature-desc">Tüm espor takımlarını ve maçlarını tek ekranda gör.</div>
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section fade-in">
+      <h2 class="section-title">Uygulama Görselleri</h2>
+      <div class="gallery-slider">
+        <button class="slider-arrow left" id="galleryLeft" aria-label="Sola Kaydır" tabindex="0" role="button">&#8592;</button>
+        <div class="gallery" id="gallery" role="region" aria-label="Uygulama görselleri sliderı">
+          <div class="gallery-item">
+            <img src="src/images/screen1.png" alt="Ana ekran" loading="lazy" />
+            <p class="gallery-caption">Ana Ekran</p>
+          </div>
+          <div class="gallery-item">
+            <img src="src/images/screen2.png" alt="Maçlar ekranı" loading="lazy" />
+            <p class="gallery-caption">Maçlar Ekranı</p>
+          </div>
+          <div class="gallery-item">
+            <img src="src/images/screen3.png" alt="Takım detay ekranı" loading="lazy" />
+            <p class="gallery-caption">Takım Detay Ekranı</p>
+          </div>
+        </div>
+        <button class="slider-arrow right" id="galleryRight" aria-label="Sağa Kaydır" tabindex="0" role="button">&#8594;</button>
+        <div class="slider-dots" id="galleryDots" role="tablist"></div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">⏱️</div>
-        <div class="feature-title">Canlı Skor</div>
-        <div class="feature-desc">Maçların anlık skorlarını ve sonuçlarını takip et.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">📅</div>
-        <div class="feature-title">Maç Takvimi</div>
-        <div class="feature-desc">Yaklaşan ve geçmiş maçları kolayca incele.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">🔔</div>
-        <div class="feature-title">Anlık Bildirim</div>
-        <div class="feature-desc">Favori takımların maçları için anında bildirim al.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">🎮</div>
-        <div class="feature-title">Çoklu Oyun</div>
-        <div class="feature-desc">VALORANT, CS2 ve LoL maçlarını takip et.</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="changelog-section">
-    <h2 class="section-title">Güncelleme Notları</h2>
-    <div id="changelog"></div>
-  </section>
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+      <h2 class="section-title">Kullanıcı Yorumları</h2>
+      <div class="testimonials">
+        <div class="testimonial-card"><div class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></div><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Gerçekten harika bir uygulama! Takımımın tüm maçlarını anında takip edebiliyorum."</div><div class="testimonial-user">- Ahmet Y.</div></div>
+        <div class="testimonial-card"><div class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></div><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Arayüzü çok modern ve kullanımı çok kolay. Bildirimler sayesinde hiçbir maçı kaçırmıyorum."</div><div class="testimonial-user">- Elif K.</div></div>
+        <div class="testimonial-card"><div class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></div><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Mobilde bu kadar hızlı çalışan başka bir espor uygulaması yok!"</div><div class="testimonial-user">- Mert S.</div></div>
+        <div class="testimonial-card"><div class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></div><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">"Topluluk özelliği sayesinde favori takımlarımı arkadaşlarımla paylaşabiliyorum."</div><div class="testimonial-user">- Zeynep T.</div></div>
+      </div>
+    </section>
 
-  <section class="faq-section">
-    <h2 class="section-title">Sıkça Sorulan Sorular (SSS)</h2>
-    <div class="faq-list">
-      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq1">
-        <div class="faq-q">EsportsPulse nedir? <span class="faq-toggle" aria-hidden="true">▼</span></div>
-        <div class="faq-a" id="faq1">EsportsPulse, tüm espor takımlarını tek bir noktadan takip etmenizi sağlayan bir mobil uygulamadır. Canlı skorlar, maç takvimi ve anlık bildirimlerle favori takımlarınızı kolayca takip edebilirsiniz.</div>
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+      <h2 class="section-title">Sıkça Sorulan Sorular (SSS)</h2>
+      <div class="faq-list">
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq1"><div class="faq-q">EsportsPulse nedir? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq1">EsportsPulse, tüm espor takımlarını tek bir noktadan takip etmenizi sağlayan bir mobil uygulamadır. Canlı skorlar, maç takvimi ve anlık bildirimlerle favori takımlarınızı kolayca takip edebilirsiniz.</div></div>
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq2"><div class="faq-q">Hangi oyunlar destekleniyor? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq2">Şu anda VALORANT, CS2 ve League of Legends oyunlarında mücadele eden tüm espor takımlarını takip edebilirsiniz. Desteklenen oyunlar zamanla artabilir.</div></div>
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq3"><div class="faq-q">Uygulamayı kullanmak için hesap oluşturmam gerekiyor mu? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq3">Hayır, herhangi bir hesap oluşturmanıza gerek yoktur. Uygulamayı tamamen anonim şekilde kullanabilirsiniz.</div></div>
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq4"><div class="faq-q">Geçmiş maç sonuçlarına erişebilir miyim? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq4">Evet! Sadece canlı skorları değil, aynı zamanda geçmiş maçların sonuçlarını da görüntüleyebilirsiniz.</div></div>
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq5"><div class="faq-q">Uygulama ücretsiz mi? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq5">Evet, uygulama tamamen ücretsizdir.</div></div>
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq6"><div class="faq-q">Karanlık/Aydınlık tema var mı? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq6">Evet, sağ üstteki ay simgesine tıklayarak tema değiştirebilirsiniz.</div></div>
+        <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq7"><div class="faq-q">Topluluk özelliği nedir? <span class="faq-toggle" aria-hidden="true">▼</span></div><div class="faq-a" id="faq7">Favori takımlarınızı ve maçlarınızı arkadaşlarınızla paylaşabilir, yorum yapabilirsiniz.</div></div>
       </div>
-      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq2">
-        <div class="faq-q">Hangi oyunlar destekleniyor? <span class="faq-toggle" aria-hidden="true">▼</span></div>
-        <div class="faq-a" id="faq2">Şu anda VALORANT, CS2 ve League of Legends oyunlarında mücadele eden tüm espor takımlarını takip edebilirsiniz. Desteklenen oyunlar zamanla artabilir.</div>
+      <div class="faq-cta">
+        <a href="mailto:info@esportspulse.com" class="cta-secondary">Daha fazla sorunuz mu var? Bize ulaşın!</a>
       </div>
-      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq3">
-        <div class="faq-q">Uygulamayı kullanmak için hesap oluşturmam gerekiyor mu? <span class="faq-toggle" aria-hidden="true">▼</span></div>
-        <div class="faq-a" id="faq3">Hayır, herhangi bir hesap oluşturmanıza gerek yoktur. Uygulamayı tamamen anonim şekilde kullanabilirsiniz.</div>
-      </div>
-      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq4">
-        <div class="faq-q">Geçmiş maç sonuçlarına erişebilir miyim? <span class="faq-toggle" aria-hidden="true">▼</span></div>
-        <div class="faq-a" id="faq4">Evet! Sadece canlı skorları değil, aynı zamanda geçmiş maçların sonuçlarını da görüntüleyebilirsiniz.</div>
-      </div>
-      <div class="faq-item" tabindex="0" aria-expanded="false" aria-controls="faq5">
-        <div class="faq-q">Uygulama ücretsiz mi? <span class="faq-toggle" aria-hidden="true">▼</span></div>
-        <div class="faq-a" id="faq5">Evet, uygulama tamamen ücretsizdir.</div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-social">
-      <a href="#" title="Twitter" aria-label="Twitter" tabindex="0"><img src="src/images/twitter.svg" alt="Twitter logosu" loading="lazy"></a>
-      <a href="#" title="Instagram" aria-label="Instagram" tabindex="0"><img src="src/images/instagram.svg" alt="Instagram logosu" loading="lazy"></a>
-      <a href="#" title="Discord" aria-label="Discord" tabindex="0"><img src="src/images/discord.svg" alt="Discord logosu" loading="lazy"></a>
+      <a href="#" title="Twitter" aria-label="Twitter" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M22.46 5.924c-.793.352-1.646.59-2.54.698a4.48 4.48 0 0 0 1.963-2.475 8.94 8.94 0 0 1-2.828 1.082A4.48 4.48 0 0 0 16.11 4c-2.48 0-4.49 2.01-4.49 4.49 0 .352.04.696.116 1.025C7.728 9.37 4.1 7.6 1.67 4.905a4.48 4.48 0 0 0-.607 2.26c0 1.56.795 2.94 2.01 3.75a4.48 4.48 0 0 1-2.034-.563v.057c0 2.18 1.55 4 3.6 4.42a4.48 4.48 0 0 1-2.03.077c.57 1.78 2.23 3.08 4.2 3.12A8.98 8.98 0 0 1 2 19.54a12.7 12.7 0 0 0 6.88 2.02c8.26 0 12.78-6.84 12.78-12.78 0-.19-.01-.38-.02-.57A9.1 9.1 0 0 0 24 4.59a8.93 8.93 0 0 1-2.54.7z"/></svg></a>
+      <a href="#" title="Instagram" aria-label="Instagram" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.13 4.659.388 3.678 1.37c-.98.98-1.238 2.092-1.297 3.374C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.613.059 1.282.317 2.394 1.297 3.374.98.98 2.092 1.238 3.374 1.297C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.282-.059 2.394-.317 3.374-1.297.98-.98 1.238-2.092 1.297-3.374.059-1.281.072-1.69.072-7.613 0-5.923-.013-6.332-.072-7.613-.059-1.282-.317-2.394-1.297-3.374-.98-.98-2.092-1.238-3.374-1.297C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+      <a href="#" title="Discord" aria-label="Discord" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.0371A19.7363 19.7363 0 0 0 3.6775 4.3698a.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276c-.598.3428-1.2205.6447-1.8733.8923a.0766.0766 0 0 0-.0406.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5218 6.0023-3.0294a.077.077 0 0 0 .0312-.0551c.5004-5.177-.8382-9.6739-3.5485-13.6603a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1835 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0957 2.1568 2.4189 0 1.3333-.9555 2.419-2.1569 2.419zm7.9748 0c-1.1836 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0957 2.1568 2.4189 0 1.3333-.946 2.419-2.1568 2.419z"/></svg></a>
+      <a href="mailto:info@esportspulse.com" title="E-posta" aria-label="E-posta" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M12 13.065l-9.714-7.29A1 1 0 0 1 3 4h18a1 1 0 0 1 .714 1.775l-9.714 7.29zm-9.714 1.86l7.714 5.79a3 3 0 0 0 3.999 0l7.714-5.79A1 1 0 0 0 21 16H3a1 1 0 0 0-.714-1.075z"/></svg></a>
+      <a href="#" title="LinkedIn" aria-label="LinkedIn" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v4.75z"/></svg></a>
     </div>
     <div class="footer-copy">&copy; 2024 EsportsPulse &bull; Tüm hakları saklıdır</div>
   </footer>
-  <script src="update.js"></script>
+
   <script>
-    // Otomatik güncelleme kontrolü
-    fetch('app-version.json')
-      .then(res => res.json())
-      .then(remote => {
-        const remoteVersion = remote.latestVersion;
-        const localVersion = localStorage.getItem('app_version');
-        if (localVersion !== remoteVersion) {
-          localStorage.setItem('app_version', remoteVersion);
-          // Yeni versiyon varsa sayfayı yenile
-          window.location.reload(true);
-        }
+    // Tema geçişi
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      themeToggle.textContent = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
+    });
+    // Galeri slider script
+    const gallery = document.getElementById('gallery');
+    const galleryItems = gallery ? Array.from(gallery.getElementsByClassName('gallery-item')) : [];
+    const leftBtn = document.getElementById('galleryLeft');
+    const rightBtn = document.getElementById('galleryRight');
+    let currentIdx = 0;
+    function showGalleryImg(idx) {
+      galleryItems.forEach((item, i) => {
+        item.style.display = i === idx ? 'block' : 'none';
       });
+      // dots
+      const dots = document.getElementById('galleryDots');
+      if (dots) {
+        dots.innerHTML = '';
+        galleryItems.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'slider-dot' + (i === idx ? ' active' : '');
+          dot.setAttribute('aria-label', `Görsel ${i+1}`);
+          dot.onclick = () => { currentIdx = i; showGalleryImg(currentIdx); };
+          dots.appendChild(dot);
+        });
+      }
+    }
+    if (galleryItems.length) {
+      showGalleryImg(currentIdx);
+      leftBtn.addEventListener('click', () => {
+        currentIdx = (currentIdx - 1 + galleryItems.length) % galleryItems.length;
+        showGalleryImg(currentIdx);
+      });
+      rightBtn.addEventListener('click', () => {
+        currentIdx = (currentIdx + 1) % galleryItems.length;
+        showGalleryImg(currentIdx);
+      });
+      // swipe desteği
+      let startX = null;
+      gallery.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      gallery.addEventListener('touchend', e => {
+        if (startX !== null) {
+          const dx = e.changedTouches[0].clientX - startX;
+          if (dx > 40) { leftBtn.click(); }
+          else if (dx < -40) { rightBtn.click(); }
+        }
+        startX = null;
+      });
+    }
+    // FAQ aç/kapa
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', function() {
+        this.classList.toggle('open');
+        const expanded = this.classList.contains('open');
+        this.setAttribute('aria-expanded', expanded);
+      });
+    });
   </script>
 </body>
 </html> 
